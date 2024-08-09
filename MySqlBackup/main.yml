@@ -1,0 +1,8 @@
+---
+ - name: Playbook for mysql backup to S3 bucket
+   hosts: database
+   tasks:
+    - name: Take MySql backup
+      shell: mysqldump -u root --password="dhana" devops tblEmployee1 > /tmp/dump3.sql
+    - name: 
+      shell: aws s3 cp /tmp/dump3.sql s3://mysql-backup-101
